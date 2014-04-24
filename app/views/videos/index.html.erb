@@ -1,0 +1,14 @@
+<h1>Videos</h1>
+
+<% @videos.each do |video| %>
+  <li><%= link_to video.title, video_path(video) %></li>
+<% end %>
+
+<%= form_for @video do |f| %>
+  <%= f.label :title %>:
+  <%= f.text_field :title %>
+  <%= f.label :video_url %>:
+  <%= f.text_field :video_url %>
+  <%= f.submit %>
+<% end %>
+

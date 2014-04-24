@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   resources :tags
   resources :formats
 
+  resources :videos
+
   root 'ideas#index'
 end
