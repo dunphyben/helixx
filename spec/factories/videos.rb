@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :video do
-    title "MyString"
-    video_url "MyString"
+    title Faker::Lorem.sentence
+    video_url "http://www.youtube.com/embed/iD4qsWnjsNU"
     idea_id 1
     user_id 1
   end
