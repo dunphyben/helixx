@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :idea do
-    title Faker::Lorem.sentence
-    summary Faker::Lorem.paragraph
-    content Faker::Lorem.paragraphs.join(" ")
+    title { Faker::Lorem.sentence }
+    summary { Faker::Lorem.sentence }
+    content { Faker::Lorem.paragraphs.join(" ") }
     published false
   end
 end

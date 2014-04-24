@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-sm-6">
+    <ul class="home">
+      <h3>Idea</h3>
+      <% @ideas.each do |idea| %>
+        <li><a href="/ideas/<%= idea.slug %>"><%= idea.title %></a><br>
+          <p><%= idea.summary %></p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-sm-6">
+    <ul class="home">
+      <h3>Video</h3>
+      <% @ideas.each do |idea| %>
+        <li><a href="/ideas/<%= idea.slug %>"><%= idea.title %></a><br>
+          <p><%= idea.summary %></p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
