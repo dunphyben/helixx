@@ -1,0 +1,11 @@
+<h1>Formats</h1>
+
+<% @formats.each do |format| %>
+  <li><%= link_to format.name, format_path(format) %></li>
+<% end %>
+
+<%= form_for @format do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>
