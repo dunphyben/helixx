@@ -4,6 +4,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_and_belongs_to_many :ideas
+  has_many :videos
+
+
   validates_presence_of :username
   validates_uniqueness_of :username
+
 end
