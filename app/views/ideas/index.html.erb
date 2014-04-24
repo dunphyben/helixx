@@ -3,7 +3,7 @@
     <ul class="home">
       <h3>Idea</h3>
       <% @ideas.each do |idea| %>
-        <li><a href="/ideas/<%= idea.slug %>"><%= idea.title %></a><br>
+        <li><a href="/ideas/index/<%= idea.id %>"><%= idea.title %></a><br>
           <p><%= idea.summary %></p>
         </li>
       <% end %>
