@@ -19,3 +19,20 @@
  .container {
   margin-top: 5%;
  }
+ h1.helix {
+  display: inline;
+  margin-right: 10px;
+ }
+
+ p.helix {
+  display: inline;
+ }
+
+ .rightSideNav {
+   float: right !important;
+ }
+
+ .leftSideNav {
+   float: left !important;
+ }
+
