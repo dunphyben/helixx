@@ -23,6 +23,19 @@ ActiveRecord::Schema.define(version: 20140424182351) do
     t.datetime "updated_at"
   end
 
+  create_table "ideas", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.text     "summary"
+    t.boolean  "published"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ideas", ["slug"], name: "index_ideas_on_slug", using: :btree
+  add_index "ideas", ["title"], name: "index_ideas_on_title", using: :btree
+
   create_table "tags", force: true do |t|
     t.string   "name"
     t.string   "slug"

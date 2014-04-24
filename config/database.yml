@@ -1,17 +1,17 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: helix_development
+  database: helixx_development
   pool: 5
 
 test:
   adapter: postgresql
   encoding: unicode
-  database: helix_test
+  database: helixx_test
   pool: 5
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: helix_production
+  database: helixx_production
   pool: 5
