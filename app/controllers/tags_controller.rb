@@ -15,13 +15,6 @@ class TagsController < ApplicationController
 
   end
 
-  def edit
-
-  end
-
-  def update
-
-  end
 
   def destroy
     @tag = Tag.find(params[:id])
