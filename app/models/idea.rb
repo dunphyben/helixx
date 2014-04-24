@@ -3,5 +3,7 @@ class Idea < ActiveRecord::Base
   friendly_id :title, use: :slugged
 
 
+  validate :title, presence: true
+
 
 end
