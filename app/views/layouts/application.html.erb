@@ -7,17 +7,29 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container">
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="leftSideNav">
+        <h1 class="helix"><%= link_to"Helix", root_url %></h1>
+        <p class="lead helix">Find your voice. Get your audience.</p>
+      </div>
+      <div class="rightSideNav">
+        <% if user_signed_in? %>
+          Brewing for: <strong><%= current_user.name %></strong>.
 
-<% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path %> |
-  <%= link_to "Login", new_user_session_path %>
-<% end %>
+          <%= link_to 'Edit profile', edit_user_registration_path %> |
+          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path %> |
+          <%= link_to "Log in", new_user_session_path %>
+        <% end %>
+      </div>
+  </nav>
+
 
 <%= yield %>
-
+</div>
+</div>
 </body>
 </html>
