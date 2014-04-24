@@ -2,6 +2,7 @@ class IdeasController < ApplicationController
 
   def index
     @ideas = Idea.all
+    @idea = Idea.find(1)
   end
 
   def show

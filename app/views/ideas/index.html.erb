@@ -10,12 +10,10 @@
     </ul>
   </div>
   <div class="col-sm-6">
-    <ul class="home">
+    <ul>
       <h3>Video</h3>
-      <% @ideas.each do |idea| %>
-        <li><a href="/ideas/<%= idea.slug %>"><%= idea.title %></a><br>
-          <p><%= idea.summary %></p>
-        </li>
+      <% @idea.videos.each do |video| %>
+        <iframe width="560" height="315" src=<%= "#{video.video_url}" %> frameborder="0" allowfullscreen></iframe>
       <% end %>
     </ul>
   </div>
