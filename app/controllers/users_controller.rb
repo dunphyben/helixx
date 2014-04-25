@@ -1,10 +1,10 @@
-class UsersController < ApplicationController
+class UsersController < DeviseController
   def show
     @user = User.find(params[:id])
   end
 
 private
-  def strong
+  def user_params
     params.require(:user).permit(:username, :email, :password, :password_digest)
   end
 end

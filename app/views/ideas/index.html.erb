@@ -6,11 +6,14 @@
       <hr>
       <% @ideas.each do |idea| %>
         <span class="rightSideNav">
-          <%= @user.username %>
+          <% idea.users.each  do |user| %>
+            <%= user.username %>
+          <% end %>
         </span>
         <br>
         <li><a href="/ideas/index/<%= idea.id %>"><%= idea.title %></a><br>
           <p><%= idea.summary %></p>
+
         <hr>
         </li>
       <% end %>
@@ -22,13 +25,15 @@
     <ul>
       <h2><center>VIDEO<center></h2>
       <hr>
-      <% @idea.videos.each do |video| %>
-      <span class="rightSideNav">
-        <%= @user.username %>
-      </span>
-      <br>
-        <iframe width="560" height="315" src=<%= "#{video.video_url}" %> frameborder="0" allowfullscreen></iframe>
-      <hr>
+      <% @ideas.each do |idea| %>
+        <% idea.videos.each do |video| %>
+          <span class="rightSideNav">
+            <%= video.user_id %>
+          </span>
+          <br>
+            <iframe width="560" height="315" src=<%= "#{video.video_url}" %> frameborder="0" allowfullscreen></iframe>
+          <hr>
+        <% end %>
       <% end %>
     </ul>
   </div>
