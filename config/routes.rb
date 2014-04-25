@@ -9,7 +9,5 @@ Rails.application.routes.draw do
 
   get 'ideas/index/:id', to: 'ideas#index', via: :get
 
-  resources :videos
-
   root 'ideas#index'
 end

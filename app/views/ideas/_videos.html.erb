@@ -1,0 +1,9 @@
+<% @idea.videos.each do |video| %>
+  <span class="rightSideNav">
+    <p>Video uploader User_ID: <%= video.user_id %></p>
+    <p>Parent Idea idea_id : <%= video.idea_id %></p>
+  </span>
+  <br>
+    <iframe width="560" height="315" src=<%= "#{video.video_url}" %> frameborder="0" allowfullscreen></iframe>
+  <hr>
+<% end %>
