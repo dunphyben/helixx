@@ -5,7 +5,6 @@ class VotesController < ApplicationController
   end
 
 
-
   def create
     @vote = Vote.create(vote_params)
     redirect_to root_url
