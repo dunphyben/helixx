@@ -13,7 +13,12 @@
         <br>
         <li><a href="/ideas/index/<%= idea.id %>"><%= idea.title %></a><br>
           <p><%= idea.summary %></p>
-        <%= link_to"Vote this Up!", new_vote_path %>
+          <%= form_for @vote do |f| %>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+            <%= f.hidden_field :idea_id, :value => idea.id %>
+            <%= f.submit"Vote Up!" %>
+          <% end %>
+
         <hr>
         </li>
       <% end %>
