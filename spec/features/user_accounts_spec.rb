@@ -10,12 +10,12 @@ feature 'user accounts' do
     fill_in :user_password, with: user.password
     fill_in :user_password_confirmation, with: user.password
     click_button "Sign up"
+
     page.should have_content "Edit profile | Logout"
   end
 
   scenario 'a user signs in' do
     user = FactoryGirl.create(:user)
-    binding.pry
     sign_in(user)
     page.should have_content "Edit profile | Logout"
   end
