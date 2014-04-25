@@ -15,11 +15,15 @@ feature 'user accounts' do
 
   scenario 'a user signs in' do
     user = FactoryGirl.create(:user)
-    visit "users/sign_in"
-    fill_in :user_email, with: user.email
-    fill_in :user_password, with: user.password
-    click_button "Sign in"
+    sign_in(user)
     page.should have_content "Edit profile | Logout"
+  end
+
+  scenario 'a user signs out' do
+    user = FactoryGirl.create(:user)
+    sign_in(user)
+    click_link "Logout"
+    page.should have_content "Sign up | Log in"
   end
 
 end
