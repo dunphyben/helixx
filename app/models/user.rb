@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :ideas
   has_many :videos
+  has_many :votes
 
 
   validates_presence_of :username
