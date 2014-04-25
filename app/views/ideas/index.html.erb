@@ -13,7 +13,7 @@
         <br>
         <li><a href="/ideas/index/<%= idea.id %>"><%= idea.title %></a><br>
           <p><%= idea.summary %></p>
-
+        <%= link_to"Vote this Up!", new_vote_path %>
         <hr>
         </li>
       <% end %>
