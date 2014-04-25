@@ -1,0 +1,9 @@
+<%= form_for @idea do |f| %>
+  <div><%= f.label :title %><br />
+  <%= f.text_field :title %></div>
+  <div><%= f.label :summary %><br />
+  <%= f.text_field :summary %></div>
+  <div><%= f.label :content %><br />
+  <%= f.text_field :content %></div>
+  <%= f.submit "Create idea" %>
+<% end %>
