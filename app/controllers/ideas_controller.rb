@@ -3,6 +3,7 @@ class IdeasController < ApplicationController
   def index
     @ideas = Idea.all
     @vote = Vote.new
+    @videovote = Videovote.new
 
     if params[:id] == nil
       @idea = Idea.find(Idea.all.first.id)
