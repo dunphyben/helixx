@@ -35,11 +35,7 @@ class IdeasController < ApplicationController
 
 private
 
- def idea_params
-  params.require(:idea).permit(:title, :content, :summary, :published, :slug)
-end
-
-
-
-
+  def idea_params
+    params.require(:idea).permit(:title, :content, :summary, :published, :slug)
+  end
 end

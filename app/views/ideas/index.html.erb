@@ -12,15 +12,16 @@
           <% end %>
         </span>
         <br>
-        <li><a href="/ideas/index/<%= idea.id %>"><%= idea.title %></a><br>
+        <li><%= link_to idea.title, "/ideas/index/#{idea.id}", id: "idea_link", remote: true %></a><br>
           <p><%= idea.summary %></p>
+        <% if current_user != nil %>
+          <%= link_to "Vote this Up!", new_vote_path %>
 
-        <%= link_to "Vote this Up!", new_vote_path %>
-
-          <%= form_for @vote do |f| %>
-            <%= f.hidden_field :user_id, :value => current_user.id %>
-            <%= f.hidden_field :idea_id, :value => idea.id %>
-            <%= f.submit "Vote Up!", :class => "btn btn-primary btn-sm" %>
+            <%= form_for @vote do |f| %>
+              <%= f.hidden_field :user_id, :value => current_user.id %>
+              <%= f.hidden_field :idea_id, :value => idea.id %>
+              <%= f.submit "Vote Up!", :class => "btn btn-primary btn-sm" %>
+            <% end %>
           <% end %>
           <p> <%= link_to "Currently has: #{idea.votes.length}", idea_path(idea) %></p>
         <hr>
@@ -30,27 +31,14 @@
   </div>
 
 
-  <div class="col-sm-6">f
+  <div class="col-sm-6">
     <ul>
       <h4><%= link_to "New Video", new_video_path %></h4>
       <h2><center>VIDEO<center></h2>
       <hr>
-      <% @idea.videos.each do |video| %>
-        <span class="rightSideNav">
-          <p>Video uploader User_ID: <%= video.user_id %></p>
-          <p>Parent Idea idea_id : <%= video.idea_id %></p>
-        </span>
-        <br>
-          <iframe width="560" height="315" src=<%= "#{video.video_url}" %> frameborder="0" allowfullscreen></iframe>
-        <hr>
-
-        <%= form_for @videovote do |f| %>
-            <%= f.hidden_field :user_id, :value => current_user.id %>
-            <%= f.hidden_field :video_id, :value => video.id %>
-            <%= f.submit "Vote Up!", :class => "btn btn-primary btn-sm" %>
-          <% end %>
-          <p> <%= link_to "Currently has: #{video.videovotes.length}", video_path(video) %></p>
-      <% end %>
+      <div id="idea_videos">
+        <%= render("videos") %>
+      </div>
     </ul>
   </div>
 </div>
