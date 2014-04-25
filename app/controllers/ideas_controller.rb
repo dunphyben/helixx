@@ -2,7 +2,7 @@ class IdeasController < ApplicationController
 
   def index
     @ideas = Idea.all
-    @users = User.all
+
     # if params[:id] != nil
     #   @idea = Idea.find(params[:id])
     #   @user = @idea.user

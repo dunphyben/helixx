@@ -2,6 +2,7 @@
 
   <div class="col-sm-6">
     <ul class="home">
+      <h4><%= link_to "New Idea", new_idea_path %></h4>
       <h2><center>IDEA<center></h2>
       <hr>
       <% @ideas.each do |idea| %>
@@ -13,7 +14,7 @@
         <br>
         <li><a href="/ideas/index/<%= idea.id %>"><%= idea.title %></a><br>
           <p><%= idea.summary %></p>
-        <%= link_to"Vote this Up!", new_vote_path %>
+        <%= link_to "Vote this Up!", new_vote_path %>
         <hr>
         </li>
       <% end %>
@@ -21,8 +22,9 @@
   </div>
 
 
-  <div class="col-sm-6">
+  <div class="col-sm-6">f
     <ul>
+      <h4><%= link_to "New Video", new_video_path %></h4>
       <h2><center>VIDEO<center></h2>
       <hr>
       <% @ideas.each do |idea| %>
