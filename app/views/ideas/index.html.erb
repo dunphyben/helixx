@@ -35,15 +35,14 @@
       <h4><%= link_to "New Video", new_video_path %></h4>
       <h2><center>VIDEO<center></h2>
       <hr>
-      <% @ideas.each do |idea| %>
-        <% idea.videos.each do |video| %>
-          <span class="rightSideNav">
-            <%= video.user_id %>
-          </span>
-          <br>
-            <iframe width="560" height="315" src=<%= "#{video.video_url}" %> frameborder="0" allowfullscreen></iframe>
-          <hr>
-        <% end %>
+      <% @idea.videos.each do |video| %>
+        <span class="rightSideNav">
+          <p>Video uploader User_ID: <%= video.user_id %></p>
+          <p>Parent Idea idea_id : <%= video.idea_id %></p>
+        </span>
+        <br>
+          <iframe width="560" height="315" src=<%= "#{video.video_url}" %> frameborder="0" allowfullscreen></iframe>
+        <hr>
       <% end %>
     </ul>
   </div>
