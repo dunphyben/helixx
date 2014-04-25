@@ -2,8 +2,10 @@ class IdeasController < ApplicationController
 
   def index
     @ideas = Idea.all
+    @users = User.all
+    @user = User.find(2)
     if params[:id] == nil
-      @idea = Idea.find(1)
+      @idea = Idea.find(37)
     else
       @idea = Idea.find(params[:id])
     end

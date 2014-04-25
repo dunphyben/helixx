@@ -1,19 +1,34 @@
 <div class="row">
+
   <div class="col-sm-6">
     <ul class="home">
-      <h3>Idea</h3>
+      <h2><center>IDEA<center></h2>
+      <hr>
       <% @ideas.each do |idea| %>
+        <span class="rightSideNav">
+          <%= @user.username %>
+        </span>
+        <br>
         <li><a href="/ideas/index/<%= idea.id %>"><%= idea.title %></a><br>
           <p><%= idea.summary %></p>
+        <hr>
         </li>
       <% end %>
     </ul>
   </div>
+
+
   <div class="col-sm-6">
     <ul>
-      <h3>Video</h3>
+      <h2><center>VIDEO<center></h2>
+      <hr>
       <% @idea.videos.each do |video| %>
+      <span class="rightSideNav">
+        <%= @user.username %>
+      </span>
+      <br>
         <iframe width="560" height="315" src=<%= "#{video.video_url}" %> frameborder="0" allowfullscreen></iframe>
+      <hr>
       <% end %>
     </ul>
   </div>

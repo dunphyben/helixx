@@ -23,8 +23,6 @@ class VideosController < ApplicationController
   end
 
 private
-
-
   def strong
     params.require(:video).permit(:video_url, :title, :idea_id, :user_id)
   end
