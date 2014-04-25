@@ -3,22 +3,12 @@ class IdeasController < ApplicationController
   def index
     @ideas = Idea.all
     @users = User.all
-    @user = User.find(2)
-    if params[:id] == nil
-      @idea = Idea.find(37)
-    else
-      @idea = Idea.find(params[:id])
-    end
-  end
-
-  def show
-    @idea = Idea.find params[:id]
-
-  end
-
-  def destroy
-    @idea = Idea.find params[:id]
-    @idea.delete
+    # if params[:id] != nil
+    #   @idea = Idea.find(params[:id])
+    #   @user = @idea.user
+    # else
+    #   @idea = Idea.find(params[:id])
+    # end
   end
 
   def new
@@ -28,6 +18,18 @@ class IdeasController < ApplicationController
   def create
     @idea = Idea.create(idea_params)
   end
+
+  def show
+    @idea = Idea.find params[:id]
+
+  end
+
+  def destroy
+    @idea = Idea.find params[:id]
+    @idea.destroy
+  end
+
+
 
 private
 
