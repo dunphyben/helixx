@@ -1,1 +1,10 @@
 <h1><%= @idea.title %></h1>
+<h4>Past Votes</h4>
+
+<br />
+<ul class="list">
+  <% @idea.votes.each do |vote| %>
+    <li><%= link_to vote.user.username, root_path %>
+        <p> Time Voted: <%= vote.how_long %></P></li>
+  <% end %>
+</ul>

@@ -6,4 +6,12 @@
   <br>
     <iframe width="560" height="315" src=<%= "#{video.video_url}" %> frameborder="0" allowfullscreen></iframe>
   <hr>
+  <% if current_user != nil %>
+    <%= form_for @videovote do |f| %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :video_id, :value => video.id %>
+      <%= f.submit "Vote Up!", :class => "btn btn-primary btn-sm" %>
+    <% end %>
+  <% end %>
+  <p> <%= link_to "Currently has: #{video.videovotes.length}", video_path(video) %></p>
 <% end %>

@@ -1,8 +1,9 @@
-class Vote < ActiveRecord::Base
-belongs_to :user
-belongs_to :idea
+class Videovote < ActiveRecord::Base
+  belongs_to :user
+  belongs_to :video
 
- validates :idea_id, uniqueness: { scope: :user_id }
+
+validates :video_id, uniqueness: { scope: :user_id }
 
  def how_long
     origin = self.created_at
