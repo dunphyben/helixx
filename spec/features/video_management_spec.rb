@@ -8,7 +8,7 @@ feature 'videos' do
     idea.videos << FactoryGirl.create(:video)
     idea2.videos << FactoryGirl.create(:video)
     visit ideas_path
-    # click_link "#{idea2.title}"
+    click_link "#{idea2.title}"
     page.should have_content "Parent Idea idea_id : #{idea2.id}"
   end
 
