@@ -2,6 +2,7 @@
 
   <div class="col-sm-6">
     <ul class="home">
+      <h4><%= link_to "New Idea", new_idea_path %></h4>
       <h2><center>IDEA<center></h2>
       <hr>
       <% @ideas.each do |idea| %>
@@ -13,14 +14,15 @@
         <br>
         <li><a href="/ideas/index/<%= idea.id %>"><%= idea.title %></a><br>
           <p><%= idea.summary %></p>
+
+        <%= link_to "Vote this Up!", new_vote_path %>
+
           <%= form_for @vote do |f| %>
             <%= f.hidden_field :user_id, :value => current_user.id %>
             <%= f.hidden_field :idea_id, :value => idea.id %>
             <%= f.submit "Vote Up!", :class => "btn btn-primary btn-sm" %>
           <% end %>
           <p> <%= link_to "Currently has: #{idea.votes.length}", idea_path(idea) %></p>
-
-
         <hr>
         </li>
       <% end %>
@@ -28,19 +30,19 @@
   </div>
 
 
-  <div class="col-sm-6">
+  <div class="col-sm-6">f
     <ul>
+      <h4><%= link_to "New Video", new_video_path %></h4>
       <h2><center>VIDEO<center></h2>
       <hr>
-      <% @ideas.each do |idea| %>
-        <% idea.videos.each do |video| %>
-          <span class="rightSideNav">
-            <%= video.user_id %>
-          </span>
-          <br>
-            <iframe width="560" height="315" src=<%= "#{video.video_url}" %> frameborder="0" allowfullscreen></iframe>
-          <hr>
-        <% end %>
+      <% @idea.videos.each do |video| %>
+        <span class="rightSideNav">
+          <p>Video uploader User_ID: <%= video.user_id %></p>
+          <p>Parent Idea idea_id : <%= video.idea_id %></p>
+        </span>
+        <br>
+          <iframe width="560" height="315" src=<%= "#{video.video_url}" %> frameborder="0" allowfullscreen></iframe>
+        <hr>
       <% end %>
     </ul>
   </div>

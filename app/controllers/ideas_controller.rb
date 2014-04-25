@@ -2,14 +2,13 @@ class IdeasController < ApplicationController
 
   def index
     @ideas = Idea.all
-    @users = User.all
     @vote = Vote.new
-    # if params[:id] != nil
-    #   @idea = Idea.find(params[:id])
-    #   @user = @idea.user
-    # else
-    #   @idea = Idea.find(params[:id])
-    # end
+
+    if params[:id] == nil
+      @idea = Idea.find(Idea.all.first.id)
+    else
+      @idea = Idea.find(params[:id])
+    end
   end
 
   def new
