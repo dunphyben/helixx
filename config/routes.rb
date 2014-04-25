@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :videos
   resources :ideas
   resources :votes
+  resources :users, only: [:show]
 
   get 'ideas/index/:id', to: 'ideas#index', via: :get
 
