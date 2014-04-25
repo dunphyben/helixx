@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   resources :tags
   resources :formats
   resources :videos
+  resources :ideas
+
+  get 'ideas/index/:id', to: 'ideas#index', via: :get
 
   resources :videos
 

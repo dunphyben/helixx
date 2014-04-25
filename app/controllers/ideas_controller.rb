@@ -2,6 +2,11 @@ class IdeasController < ApplicationController
 
   def index
     @ideas = Idea.all
+    if params[:id] == nil
+      @idea = Idea.find(1)
+    else
+      @idea = Idea.find(params[:id])
+    end
   end
 
   def show
