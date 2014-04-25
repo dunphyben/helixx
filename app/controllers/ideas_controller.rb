@@ -2,6 +2,7 @@ class IdeasController < ApplicationController
 
   def index
     @ideas = Idea.all
+    @vote = Vote.new
 
     # if params[:id] != nil
     #   @idea = Idea.find(params[:id])

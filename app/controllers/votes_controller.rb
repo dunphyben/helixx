@@ -4,16 +4,14 @@ class VotesController < ApplicationController
     @votes = Vote.all
   end
 
-  def new
-    @vote = Vote.new
-    self.create
-
-  end
 
   def create
-    @vote = Vote.new(:user_id => current_user.id)
-    @vote = Vote.create(params[:id])
+    @vote = Vote.create(vote_params)
+    redirect_to root_url
 
   end
-
+private
+  def vote_params
+    params.require(:vote).permit(:user_id, :idea_id)
+  end
 end
