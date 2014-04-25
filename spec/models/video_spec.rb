@@ -4,6 +4,7 @@ describe Video do
 
   it { should belong_to :user }
   it { should belong_to :idea }
+  it { should have_many :videovotes}
 
   describe 'url_scrub' do
     it 'should write the video url in a format for embedding' do

@@ -2,6 +2,7 @@ class Video < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :idea
+  has_many :videovotes
 
 
 before_save :url_scrub
