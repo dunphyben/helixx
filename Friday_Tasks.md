@@ -6,7 +6,7 @@
 
 ## VIDEO COLUMN
   1. Place videos in list grid, limit size.
-  2. Add "New" Button to add a new idea by current_user
+  2. *DONE* Add "New" Button to add a new idea by current_user
   3. Add user_id to videos.
   4. Add a "+" icon to the right of the Username above the video that allows following a user (see task below)
 
@@ -30,7 +30,7 @@
     a. Allow users to hide their name from location-based searches
 
 ## VOTE ALGO
-  Users can upvote and downvote an idea or video, once.
+  *DONE (simple vote)* Users can upvote and downvote an idea or video, once.
 
 ## SEARCH
   Add search functionality for ideas, tags, and formats.
