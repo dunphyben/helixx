@@ -11,6 +11,6 @@ feature 'creating new ideas' do
     fill_in :idea_summary, with: idea.summary
     fill_in :idea_content, with: idea.content
     click_button "Create idea"
-    page.should have_content "Idea created"
+    page.should have_content "#{idea.title}"
   end
 end

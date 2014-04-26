@@ -6,7 +6,11 @@ class IdeasController < ApplicationController
     @videovote = Videovote.new
 
     if params[:id] == nil
-      @idea = Idea.find(Idea.all.first.id)
+      if Idea.all.length == 0
+        @idea = Idea.new
+      else
+        @idea = Idea.find(Idea.all.first.id)
+      end
     else
       @idea = Idea.find(params[:id])
     end
@@ -23,15 +27,12 @@ class IdeasController < ApplicationController
 
   def show
     @idea = Idea.friendly.find(params[:id])
-
   end
 
   def destroy
-    @idea = Idea.find params[:id]
+    @idea = Idea.find(params[:id])
     @idea.destroy
   end
-
-
 
 private
 
