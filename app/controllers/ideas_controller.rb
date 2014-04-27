@@ -28,7 +28,7 @@ class IdeasController < ApplicationController
           flash[:notice] = "Idea Created."
           redirect_to idea_path(@idea)
         end
-        format.json { render => @idea, :status => 201 }
+        format.json { render :json => @idea, :status => 201 }
       end
     else
       respond_to do |format|
@@ -43,7 +43,7 @@ class IdeasController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render json: @ideas }
+      format.json { render :json => @ideas }
     end
   end
 
