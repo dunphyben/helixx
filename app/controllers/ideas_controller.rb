@@ -22,16 +22,63 @@ class IdeasController < ApplicationController
 
   def create
     @idea = Idea.create(idea_params)
-    redirect_to idea_path(@idea)
+    if @idea.save
+      respond_to do |format|
+        format.html do
+          flash[:notice] = "Idea Created."
+          redirect_to idea_path(@idea)
+        end
+        format.json { render :json => @idea, :status => 201 }
+      end
+    else
+      respond_to do |format|
+        format.html { render 'new' }
+        format.json { render :json => @idea.errors, :status => 422 }
+      end
+    end
   end
 
   def show
     @idea = Idea.friendly.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => @ideas }
+    end
+  end
+
+  def edit
+    @idea = Idea.find(params[:id])
+  end
+
+  def update
+    @idea = Idea.find(params[:id])
+    if @idea.update(params[:idea])
+      respond_to do |format|
+        format.html do
+          flash[:notice] = "Idea updated."
+          redirect_to idea_path(@idea)
+        end
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { render 'edit' }
+        format.json { render :json => @idea.errors, :status => 422 }
+      end
+    end
   end
 
   def destroy
     @idea = Idea.find(params[:id])
     @idea.destroy
+    respond_to do |format|
+      format.html do
+        flash[:notice] = "Idea deleted."
+        redirect_to ideas_path
+      end
+      format.json { head :no_content }
+    end
   end
 
 private

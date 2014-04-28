@@ -7,6 +7,11 @@ class VideosController < ApplicationController
 
   def show
     @video = Video.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @video }
+    end
   end
 
   def create

@@ -27,7 +27,7 @@
         end search bar -->
 
         <% if user_signed_in? %>
-          <strong><%= current_user.username %></strong>.
+          <strong><font color="red"><%= current_user.username %></font></strong>.
 
           <%= link_to 'Edit profile', edit_user_registration_path %> |
           <%= link_to "Logout", destroy_user_session_path, method: :delete %>
