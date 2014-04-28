@@ -4,7 +4,7 @@ FactoryGirl.define do
   factory :video do
     title { Faker::Lorem.sentence }
     video_url "http://www.youtube.com/embed/iD4qsWnjsNU"
-    idea_id { Faker::Number.number(2) }
-    user_id { Faker::Number.number(2) }
+    idea_id { Faker::Number.number(1) }
+    user_id { Faker::Number.number(1) }
   end
 end

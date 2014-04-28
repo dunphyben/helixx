@@ -15,6 +15,7 @@
         <li><%= link_to idea.title, "/ideas/index/#{idea.id}", id: "idea_link", remote: true %></a><br>
           <p><%= idea.summary %></p>
         <% if current_user != nil %>
+<!--Glyphicon not working! -->
           <span class="glyphicon glyphicon-arrow-up"></span>
           <%= link_to "Vote this Up!", new_vote_path %>
 
