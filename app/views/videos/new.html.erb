@@ -1,0 +1,11 @@
+<h1>New Video</h1>
+
+<%= form_for @video do |f| %>
+  <div><%= f.label :title %><br />
+  <%= f.text_field :title, cols: 40 %></div>
+  <div><%= f.label :video_url %><br />
+  <%= f.text_field :video_url, cols: 60 %></div>
+  <div><%= f.label :idea_id %><br />
+  <%= f.text_field :idea_id, cols: 40 %></div><br />
+  <%= f.submit "Embed Video" %>
+<% end %>

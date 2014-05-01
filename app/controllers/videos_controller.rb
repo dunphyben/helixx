@@ -5,6 +5,10 @@ class VideosController < ApplicationController
     @videos = Video.all
   end
 
+  def new
+    @video = Video.new
+  end
+
   def show
     @video = Video.find(params[:id])
 
@@ -15,8 +19,11 @@ class VideosController < ApplicationController
   end
 
   def create
-    @video = Video.create(strong)
-    redirect_to videos_path
+    @video = current_user.videos.build(strong)
+    @idea = Idea.find(params[:id])
+    if video.save
+    redirect_to root_path
+    end
 
   end
 
